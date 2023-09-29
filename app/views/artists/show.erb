@@ -6,4 +6,7 @@
 <% end %>
 <p>Name: <%= @artist[:name] %></p> 
 <p>Age: <%= @artist[:age] %></p> 
-<%=link_to("Back","/artists")%>
+<%=link_to("Back","/artists")%><br/>
+<%= form_for(@artist,:html => {method: :delete}) do |f|%>
+    <%= f.submit "Delete" %>
+<%end%>

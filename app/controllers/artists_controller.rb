@@ -31,6 +31,13 @@ class ArtistsController < ApplicationController
         redirect_to @artist
     end
 
+    def destroy
+        @artist = Artist.find(params[:id])
+        @artist.destroy
+        flash[:notice] = "The selected artist is deleted."
+        redirect_to artists_path
+    end
+    
     private
     def artist_params
         params.require(:artist).permit(:name,:age,:experience_level)
