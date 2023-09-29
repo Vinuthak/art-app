@@ -1,4 +1,9 @@
 <h1>Artist's details</h1>
+<% flash.each do |type, msg| %>
+    <div style="color: #FF6666">
+        <%= msg %>
+    </div>
+<% end %>
 <p>Name: <%= @artist[:name] %></p> 
 <p>Age: <%= @artist[:age] %></p> 
 <%=link_to("Back","/artists")%>

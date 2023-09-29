@@ -16,6 +16,7 @@ class ArtistsController < ApplicationController
 
     def create
         @artist = Artist.create(artist_params)
+        flash[:notice] = "A new Artist has been created."
         redirect_to @artist
     end
 
@@ -26,6 +27,7 @@ class ArtistsController < ApplicationController
     def update
         @artist = Artist.find(params[:id])
         @artist.update(artist_params)
+        flash[:notice] = "Artist has been updated."
         redirect_to @artist
     end
 
