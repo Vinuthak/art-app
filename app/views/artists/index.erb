@@ -1,12 +1,32 @@
-<h1>List of artists</h1>
-<% flash.each do |type, msg| %>
-    <div style="color: #FF6666">
-        <%= msg %>
-    </div>
-<% end %>
-<% for artist in @artists do %>
-    <p>Name: <%= artist.name %>, age:<%= artist.age %>, experience_level:<%= artist.experience_level %></p>
-    <p><%= link_to("view", artist_path(artist)) %></p>
-    <p><%= link_to("edit", edit_artist_path(artist)) %></p> 
-<% end %>
- <%= link_to("Create New Artist", new_artist_path)%>
+ <%= render "flash" %>
+ 
+ <h1>List of artists</h1>
+
+ <table border="1" width="500">
+    <tr>
+        <th width = "30%" >Name</th>
+        <th width = "15%" >Age</th>
+        <th width = "15%" >Experience</th>
+        <th width = "40%" >Actions</th>
+    </tr>
+    
+    <tbody>
+        <% for artist in @artists do%>
+            <tr>
+                <td><%= artist.name %></td>
+                <td><%= artist.age %></td>
+                <td><%= artist.experience_level %></td>
+                <td>
+                    <%= link_to("view","/artists/#{artist.id}") %> |
+                    <%= link_to("edit","/artists/#{artist.id}/edit") %> |
+                    <%= link_to("Delete","/artists/#{artist.id}") %>
+                </td>
+            </tr>
+        <% end%> 
+          
+    </tbody>
+ </table>
+
+<%= link_to("Create New Artist",new_artist_path) %>
+
+ 

@@ -1,7 +1,13 @@
 <h2>Edit Artist details</h2>
-<%= form_for @artist do |f| %>
-  Name: <%= f.text_field :name %><br/><br/>
-  Age: <%= f.number_field :age%><br/><br/>
-  Experience Level: <%= f.number_field :experience_level%><br/><br/>
-  <%= f.submit %>
+
+<% if @artist.errors.present? %>
+
+  <ul>Fix following errors
+    <% for error in @artist.errors.full_messages %>
+      <li><%= error %></li>
+    <% end %>
+  </ul> 
+
 <% end %>
+
+<%= render "form" %>
