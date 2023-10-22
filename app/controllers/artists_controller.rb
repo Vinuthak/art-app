@@ -20,12 +20,12 @@ class ArtistsController < ApplicationController
                 flash[:notice] = "A new Artist has been created."
                 redirect_to @artist
             else
-                redirect_to new_artist_path, alert:"Error creating artist!"   
+                render action: :new
             end
     end
 
     def edit
-        @artist = Artist.find(params["id"])
+        @artist = Artist.find(params[:id])
     end
 
     def update

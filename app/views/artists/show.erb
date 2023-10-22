@@ -1,9 +1,27 @@
 <h1>Artist's details</h1>
 <%= render "flash" %>
-<p>Name: <%= @artist[:name] %></p> 
-<p>Age: <%= @artist[:age] %></p> 
-<p>Experience: <%= @artist.experience_level %></p>
-<%=link_to("Back","/artists")%><br/>
+
+<table border = "1" width = "500">
+    <tr>
+        <th width = "30%" >Name</th>
+        <th width = "15%" >Age</th>
+        <th width = "15%" >Experience</th>
+        <th width = "40%" >Actions</th>
+    </tr>
+
+    <tbody>
+        <tr>
+            <td><%= @artist[:name] %></td>
+            <td><%= @artist[:age] %></td>
+            <td><%= @artist[:experience_level] %></td>
+            <td><%= link_to("Edit","/artists/#{@artist.id}/edit")%> | <%= link_to("Back","/artists")%></td>
+        </tr>
+      
+    </tbody>
+</table>
+
+<br>
+
 <%= form_for(@artist,:html => {method: :delete}) do |f|%>
     <%= f.submit "Delete" %>
 <%end%>

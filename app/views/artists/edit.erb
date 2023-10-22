@@ -1,13 +1,5 @@
 <h2>Edit Artist details</h2>
 
-<% if @artist.errors.present? %>
-
-  <ul>Fix following errors
-    <% for error in @artist.errors.full_messages %>
-      <li><%= error %></li>
-    <% end %>
-  </ul> 
-
-<% end %>
+<%= render "errors" %>
 
 <%= render "form" %>
