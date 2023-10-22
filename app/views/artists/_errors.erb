@@ -1,0 +1,11 @@
+<% if @artist.errors.present? %>
+
+  <ul>Fix following errors
+    <% for error in @artist.errors.full_messages %>
+    <div style="color: #FF6666">
+      <li><%= error %></li>
+    </div>
+    <% end %>
+  </ul> 
+
+<% end %>

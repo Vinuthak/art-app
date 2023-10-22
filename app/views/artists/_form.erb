@@ -1,0 +1,23 @@
+<%= form_for @artist do |f| %>
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><%= f.text_field :name %></td>
+        </tr>
+
+        <tr>
+            <td>Age: </td>
+            <td><%= f.text_field :age %></td>
+        </tr>
+
+        <tr>
+            <td>Experience_level </td>
+            <td><%= f.number_field :experience_level %></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><%= f.submit %></td>
+        </tr>
+    </table> 
+<% end %>

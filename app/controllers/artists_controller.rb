@@ -1,24 +1,52 @@
 class ArtistsController < ApplicationController
     def index
-        @artists = get_artists
+        @artists = Artist.all
     end
 
     def show
         # params: { "id" => "1" }
         id = params["id"] # "1"
         
-        artists = get_artists
-        
-        @artist = artists.find { |artist| artist.id == id.to_i }
+        @artist = Artist.find(id)
     end 
+    
+    def new
+        @artist = Artist.new
+    end
 
+    def create
+            @artist = Artist.create(artist_params)
+            if  @artist.save   
+                flash[:notice] = "A new Artist has been created."
+                redirect_to @artist
+            else
+                render action: :new
+            end
+    end
+
+    def edit
+        @artist = Artist.find(params[:id])
+    end
+
+    def update
+        @artist = Artist.find(params[:id])
+        if @artist.update(artist_params)
+            flash[:notice] = "Artist has been updated."
+            redirect_to @artist # || artist_path(@artist) || "/artists/#{@artist.id}"
+        else
+            render action: :edit
+        end
+    end
+
+    def destroy
+        @artist = Artist.find(params[:id])
+        @artist.destroy
+        flash[:notice] = "The selected artist is deleted."
+        redirect_to artists_path
+    end
+    
     private
-
-    def get_artists
-        [
-            Artist.new(id: 1, name:"Nivin",age:25,experience_level:5),
-            Artist.new(id: 2, name: "Mohanlal",age: 40,experience_level:5),
-            Artist.new(id: 3,name: "Mammootty",age: 35,experience_level:2)
-        ]
+    def artist_params
+        params.require(:artist).permit(:name,:age,:experience_level)
     end
 end
