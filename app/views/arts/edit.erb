@@ -1,0 +1,8 @@
+<h1>Edit Art </h1>
+
+<%= render "form" %>
+<tr>
+    <%= form_for(@art,:html => {method: :delete}) do |f|%>
+        <%= f.submit "Delete Art" %>
+    <% end %> 
+</tr>   

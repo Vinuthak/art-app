@@ -1,0 +1,24 @@
+<%= form_for @art do |f| %>
+    <table>
+        <tr>
+            <td>Art_id:</td>
+            <td><%= f.number_field :artist_id %></td>
+        </tr>
+        <tr>
+            <td>Name of the Art:</td>
+            <td><%= f.text_field :art_name%></td>
+        </tr>
+        <tr>
+            <td>Year:</td>
+            <td><%= f.number_field :year %></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><%=f.submit %></td>     
+        </tr>
+    </table>
+<% end %>
+
+
+
+

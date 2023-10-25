@@ -1,0 +1,21 @@
+<%= render "flash"%>
+<h1>Details of Art</h1>
+<table border = "1", width = "500" >
+    <tr>
+        <th>Art_id</th>
+        <th>Art Name</th>
+        <th>Year</th>
+        <th>Actions</th>
+    </tr>
+    <tbody>
+        <tr>
+            <td><%= @art[:artist_id] %></td>
+            <td><%= @art[:art_name] %></td>
+            <td><%= @art[:year] %></td>
+            <td><%= link_to("Edit","/arts/#{@art[:id]}/edit")%></td>
+        </tr>
+    </tbody>
+</table>
+<%= form_for(@art,:html => {method: :delete}) do |f|%>
+    <%= f.submit "Delete" %>
+<% end %>    

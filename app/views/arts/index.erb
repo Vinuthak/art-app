@@ -1,0 +1,25 @@
+<%= render "flash" %>
+<h1>List of Arts</h1>
+
+<table border = "1" width = "500">
+    <tr>
+        <th width = "20%" > Artist_Id </th><br>
+        <th width = "40%" > Art Name </th><br>
+        <th width = "20%" > Year </th>
+        <th width = "20" > Actions </th>
+    </tr>
+    <tbody>
+        <% for art in @arts do %>
+            <tr>
+                <td><%= art.artist_id %></td>
+                <td><%= art.art_name %></td>
+                <td><%= art.year %></td>
+                <td><%= link_to("open","/arts/#{art[:id]}") %>|
+                <%= link_to("Edit","/arts/#{art[:id]}/edit")%> 
+
+                </td> 
+            </tr>
+        <% end %>
+    </tbody>    
+</table>
+    <%= link_to("Create New Art",new_art_path) %>
