@@ -1,0 +1,11 @@
+<% if @art.errors.present? %>
+
+  <ul>Fix following errors
+    <% for error in @art.errors.full_messages %>
+    <div style="color: #FF6666">
+      <li><%= error %></li>
+    </div>
+    <% end %>
+  </ul> 
+
+<% end %>
