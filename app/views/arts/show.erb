@@ -11,8 +11,11 @@
         <tr>
             <td><%= @art[:artist_id] %></td>
             <td><%= @art[:art_name] %></td>
+            <td><%= @art[:price] %></td>
             <td><%= @art[:year] %></td>
-            <td><%= link_to("Edit","/arts/#{@art[:id]}/edit")%></td>
+            <td><%= link_to("Edit","/arts/#{@art[:id]}/edit")%></td>|
+            <td><%= link_to("Back to the list",arts_path)%></td>
+            
         </tr>
     </tbody>
 </table>

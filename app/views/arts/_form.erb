@@ -9,6 +9,10 @@
             <td><%= f.text_field :art_name%></td>
         </tr>
         <tr>
+            <td>Price of the Art:</td>
+            <td><%= f.number_field :price %></td>
+        </tr>
+        <tr>
             <td>Year:</td>
             <td><%= f.number_field :year %></td>
         </tr>
@@ -18,6 +22,7 @@
         </tr>
     </table>
 <% end %>
+<%= link_to("Back to the arts list", arts_path) %>
 
 
 

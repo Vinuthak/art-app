@@ -4,7 +4,6 @@ class CreateArts < ActiveRecord::Migration[6.0]
       t.integer :artist_id
       t.string :art_name
       t.integer :year
-
       t.timestamps
     end
   end
