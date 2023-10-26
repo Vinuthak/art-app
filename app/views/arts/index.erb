@@ -3,8 +3,9 @@
 
 <table border = "1" width = "500">
     <tr>
-        <th width = "20%" > Artist_Id </th><br>
+        <th width = "10%" > Artist_Id </th><br>
         <th width = "40%" > Art Name </th><br>
+        <th width = "10%" > Price </th><br>
         <th width = "20%" > Year </th>
         <th width = "20" > Actions </th>
     </tr>
@@ -13,6 +14,7 @@
             <tr>
                 <td><%= art.artist_id %></td>
                 <td><%= art.art_name %></td>
+                <td><%= art.price %></td>
                 <td><%= art.year %></td>
                 <td><%= link_to("open","/arts/#{art[:id]}") %>|
                 <%= link_to("Edit","/arts/#{art[:id]}/edit")%> 
